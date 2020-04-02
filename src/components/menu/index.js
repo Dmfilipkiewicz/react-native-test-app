@@ -9,15 +9,15 @@ const Menu = ({navigation}) => {
   return (
     <>
       <View style={{padding: 40, backgroundColor: 'ddd'}}>
-        <Text>asdasd</Text>
+        <Text>Main</Text>
         <Button
-          title="counter"
+          title="Główna strona"
           onPress={() => navigationHandler('main')}
         />
-        <Text>xx</Text>
+        <Text>:)</Text>
         <Button
-          title="Lista redux"
-          onPress={() => navigationHandler('testView')}
+          title="Lista kart"
+          onPress={() => navigationHandler('listOfCardsContainer')}
         />
       </View>
     </>

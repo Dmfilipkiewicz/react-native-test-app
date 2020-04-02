@@ -2,15 +2,17 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import TestView from './src/components/TestView.js';
 import Main from './src/components/Main.js';
-import store from './store/store.js';
+import store from './store/Store.js';
 import {Provider} from 'react-redux';
-import Navigator from './src/navigation';
+import Navigation from './src/navigation/Index';
+import ContainerForReducerucer from './src/globalComponents/ContainerForReducer.js'
 
 export default function App() {
   return (
     <Provider store={store}>
       <View style={styles.container}>
-        <Navigator/>
+        <ContainerForReducerucer/>
+        <Navigation/>
       </View>
     </Provider>
   );

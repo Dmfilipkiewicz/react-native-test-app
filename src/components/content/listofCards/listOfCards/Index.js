@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text } from 'react-native';
+import Card from './card/Index';
 
-const ListOfCards = ({data}) => {
+const ListOfCards = (props) => {
 
     
-    return (<View>
-        
+    return (
+    <View>
+        <Card/>
     </View>)
 } 
 

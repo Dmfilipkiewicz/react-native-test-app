@@ -1,14 +1,23 @@
 const template = {
-    users: [{name: 'test', age: 29, id: '1'}],
-    cards: []
+    cards: [],
+    searchedCard: []
   };
   
   function cardReducer(state = template, {type, payload}) {
     switch (type) {
       case 'ADD_TO_LIST': {
-        console.log(payload)
-        console.log(state)
-        return state.cards.push(...payload);
+        state.cards.push(...payload);
+        return {
+          ...state,
+          cards: payload
+        }
+      }
+      case 'ADD_CARD_TO_LIST': {
+        state.searchedCard.push(...payload);
+        return{
+          ...state,
+          cards: payload
+        }
       }
       default:
         return state;

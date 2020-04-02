@@ -3,6 +3,7 @@ import {createAppContainer} from 'react-navigation';
 import Main from '../components/Main';
 import TestView from '../components/TestView'
 import Menu from '../components/menu/index'
+import ListOfCardsContainer from '../components/listOfCardsContainer/Index.js'
 
 const screens = {
   menu: {
@@ -14,8 +15,14 @@ const screens = {
   testView: {
     screen: TestView,
   },
+  listOfCardsContainer: {
+    screen: ListOfCardsContainer,
+    navigationOptions:{
+      title:'Lista kart'
+    }
+  }
 };
 
-const Stack = createStackNavigator(screens);
+const Navigation = createStackNavigator(screens);
 
-export default createAppContainer(Stack);
+export default createAppContainer(Navigation);

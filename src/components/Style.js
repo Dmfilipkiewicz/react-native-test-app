@@ -1,13 +1,13 @@
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-    Header: {
+    header: {
         width: "100vw",
         display: "flex",
         justifyContent: "space-evenly",
 
     },
-    Header__text: {
+    header_text: {
         textAlign: "center",
         color: "red"
     }

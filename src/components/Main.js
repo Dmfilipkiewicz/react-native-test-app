@@ -3,7 +3,7 @@ import { View, Text, SafeAreaView } from 'react-native';
 import { returnView, EnumView } from '../../helpers/EnumView.js'
 import SimpleNav from './header/SimpleNav.js';
 import LocationNav from './header/LocationNav.js';
-import styles from '../styles/mainStyle.js'
+import styles from './Style.js'
 import Container from './content/listofCards/Container.js';
 import {result} from '../../requests/api'
 import Axios from 'axios';
@@ -22,10 +22,10 @@ const Main = props => {
     })
     return (
     <SafeAreaView>
-    <View style={styles.Header}>
+    {/* <View style={styles.Header}>
         <SimpleNav handleSwitchView = {handleSwitchView}/>
         <LocationNav style={styles.Header__text} numberView = {switchView} />
-    </View>
+    </View> */}
     <View>
         <Container/>
     </View>
