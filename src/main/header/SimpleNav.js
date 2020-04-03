@@ -1,3 +1,4 @@
+//Tests
 import React from 'react';
 import { View, SafeAreaView, Button } from 'react-native';
 import { EnumView } from '../../../enums/EnumView';

@@ -31,14 +31,14 @@ const ListOfCardsContainer = ({filteredCardList, dispatchSearchedCardsToState}) 
         <FlatList
             data = {filteredCardList}
             renderItem={({item}) => 
-            <View>
-                <ImageCard
-                    cardImages = {item.card_images[0]}
-                />
-                <ShortCardDescription 
-                    data = {item}
-                />
-            </View>}
+                <View>
+                    <ImageCard
+                        cardImages = {item.card_images[0]}
+                    />
+                    <ShortCardDescription 
+                        data = {item}
+                    />
+                </View>}
             keyExtractor={item => item.id.toString()}
         />
     </View>)

@@ -12,10 +12,7 @@ const ContainerForReducer = ({dispatchCardsToState}) => {
         fetch()
     }, [])
 
-    return (
-        <>
-        </>
-    )
+    return (<></>)
 
 } 
 
