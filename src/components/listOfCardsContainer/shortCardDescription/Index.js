@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Button } from 'react-native';
 import styles from './Style.js'
 
-const ShortCardDescription = ({name, desc}) => {
+const ShortCardDescription = ({data}) => {
 
     return (
     <View style={styles.list_item_card}>
-        <Text>{name} - {desc}</Text>
+        <Text>{data.name}</Text>
+        <Text>{data.desc}</Text>
     </View>)
 } 
 

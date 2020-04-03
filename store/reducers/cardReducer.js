@@ -1,6 +1,7 @@
 const template = {
     cards: [],
     searchedCards: [],
+    dataFromOneCard: {},
     searchCardText: '',
   };
   
@@ -11,6 +12,13 @@ const template = {
         return {
           ...state,
           cards: payload
+        }
+      }
+      case 'ADD_INFO_ONE_CARD':{
+        state.dataFromOneCard = payload;
+        return{
+          ...state,
+          dataFromOneCard: payload
         }
       }
       case 'ADD_SEARCHED_CARDS_TO_LIST': {

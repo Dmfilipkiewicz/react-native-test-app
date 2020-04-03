@@ -26,7 +26,7 @@ const ListOfCardsContainer = ({filteredCardList, dispatchSearchedCardsToState}) 
     return (
     <View>
         <View>
-            <TextInput  value={inputData} onChangeText={editedText => setInputData(editedText)}/>
+            <TextInput value={inputData} onChangeText={editedText => setInputData(editedText)}/>
             <Button title = 'Szukaj' onPress={() => handleSearchValue(inputData)}/>
         </View>
         <FlatList
@@ -37,8 +37,7 @@ const ListOfCardsContainer = ({filteredCardList, dispatchSearchedCardsToState}) 
                     cardImages = {item.card_images[0]}
                 />
                 <ShortCardDescription 
-                    name = {item.name} 
-                    desc = {item.desc}
+                    data = {item}
                 />
             </View>}
             keyExtractor={item => item.id.toString()}

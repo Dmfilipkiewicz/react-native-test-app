@@ -3,7 +3,7 @@ import { View, TextInput, Button } from 'react-native';
 import { CardRequest } from '../../../../requests/apiCards';
 import { connect } from 'react-redux';
 
-const SearchForCards = ({dispatchCardsToState}) => {
+const SearchForCards = ({dispatchCardToState}) => {
 
     const [inputData, setInputData] = useState('')
     const [search, setSearch] = useState('Dark Magician')
@@ -13,8 +13,10 @@ const SearchForCards = ({dispatchCardsToState}) => {
     })
 
     useEffect( () =>{
-        CardRequest.getSpecificCards(search, response => {
-            dispatchCardsToState(response.data)
+        CardRequest.getOneCard(search, response => {
+            dispatchCardToState(response.data)
+        }, () => {
+            dispatchCardToState({})
         })
     }, [search])
     return (
@@ -26,7 +28,7 @@ const SearchForCards = ({dispatchCardsToState}) => {
 
 const mapDispatchToProps = dispatch =>{
     return {
-        dispatchCardsToState: (cards) => dispatch({type: 'ADD_TO_LIST', payload: cards})
+        dispatchCardToState: (card) => dispatch({type: 'ADD_INFO_ONE_CARD', payload: card})
     }
 }
 

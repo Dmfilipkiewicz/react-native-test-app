@@ -4,6 +4,7 @@ import Main from '../components/Main';
 import TestView from '../components/TestView'
 import Menu from '../components/menu/index'
 import ListOfCardsContainer from '../components/listOfCardsContainer/Index.js'
+import Card from '../components/content/listofCards/listOfCards/card/Index';
 
 const screens = {
   menu: {
@@ -20,7 +21,7 @@ const screens = {
     navigationOptions:{
       title:'Lista kart'
     }
-  }
+  },
 };
 
 const Navigation = createStackNavigator(screens);

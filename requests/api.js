@@ -10,7 +10,5 @@ export const axiosGet = async (url, success, failure) => {
   }
   await axios.get(url)
     .then(success)
-    .catch((failure) => {
-      console.log(failure)
-    });
+    .catch(failure);
 }

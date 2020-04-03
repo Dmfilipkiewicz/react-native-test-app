@@ -6,14 +6,44 @@ import {useDataCardApi, axiosGet } from '../../../../requests/api.js';
 import { connect } from 'react-redux';
 import { CardRequest } from '../../../../requests/apiCards.js';
 
-const Container = (props) => {
+const Container = ({oneCard}) => {
+
+    const [cardData, setCardData] = useState({})
+
+    useEffect(() => {
+        console.log("cardData")
+        setCardData(oneCard[0])
+    },[oneCard])
+
+    const showComponents = (() => {
+        if (Object.keys(oneCard).length !== 0) {
+            return (
+                <View>
+                    <ListOfCards/>
+                </View>
+            )
+        } else {
+            return(
+                <View>
+                    <Text>Nie znaleziono karty :(</Text>
+                </View>
+            )
+        }
+    })
 
     return (
-    <View>
-        <SearchForCards/>
-        <ListOfCards/>
-    </View>)
+        <View>
+            <SearchForCards/>
+            {showComponents()}
+        </View>
+        )
 } 
 
+const mapStateToProps = state => {   
+    return{
+        oneCard: state.cardReducer.dataFromOneCard,
+    }
+}
 
-export default connect()(Container);
+
+export default connect(mapStateToProps)(Container);
