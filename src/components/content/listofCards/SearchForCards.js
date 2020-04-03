@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, TextInput, Button } from 'react-native';
 import { CardRequest } from '../../../../requests/apiCards';
 import { connect } from 'react-redux';
 
@@ -13,14 +13,10 @@ const SearchForCards = ({dispatchCardsToState}) => {
     })
 
     useEffect( () =>{
-        console.log("Biere karte")
         CardRequest.getSpecificCards(search, response => {
             dispatchCardsToState(response.data)
         })
     }, [search])
-
-    console.log("Sercz")
-    console.log(search)
     return (
     <View>
         <TextInput value={inputData} onChangeText={editedText => setInputData(editedText)}/>

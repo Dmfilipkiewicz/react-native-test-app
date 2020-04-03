@@ -1,6 +1,7 @@
 const template = {
     cards: [],
-    searchedCard: []
+    searchedCard: [],
+    searchCardText: '',
   };
   
   function cardReducer(state = template, {type, payload}) {
@@ -16,9 +17,15 @@ const template = {
         state.searchedCard.push(...payload);
         return{
           ...state,
-          cards: payload
+          searchedCard: payload
         }
       }
+      case 'SEARCH_CARD':
+        state.searchCardText = payload
+        return{
+          ...state,
+          searchCardText: payload
+        }
       default:
         return state;
     }
