@@ -2,22 +2,21 @@ import React, { useState, useEffect } from 'react';
 import { View, Button, TextInput } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
-import ShortCardDescription from './shortCardDescription/Index';
-import ImageCard from './imageCard/Index';
+import ShortCardDescription from './shortCardDescription';
+import ImageCard from './imageCard';
 import { CardRequest } from '../../../requests/apiCards';
 
 const ListOfCardsContainer = ({filteredCardList, dispatchSearchedCardsToState}) => {
 
     const [inputData, setInputData] = useState('')
     const [searchCards, setSearchCards] = useState('')
-    const [Loading, setLoading] = useState(true)
 
     useEffect( () =>{
-        setLoading(true)
-        CardRequest.getSpecificCards(searchCards, response => {
-            dispatchSearchedCardsToState(response.data)
-            setLoading(false)
-        })
+        const fetch = async () => {
+            const response = await CardRequest.getSpecificCards(searchCards);
+            dispatchSearchedCardsToState(response)
+        }
+        fetch()
     }, [searchCards])
 
     const handleSearchValue = ((search) => {

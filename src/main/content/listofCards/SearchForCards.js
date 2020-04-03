@@ -12,13 +12,14 @@ const SearchForCards = ({dispatchCardToState}) => {
         setSearch(search)
     })
 
-    useEffect( () =>{
-        CardRequest.getOneCard(search, response => {
-            dispatchCardToState(response.data)
-        }, () => {
-            dispatchCardToState({})
-        })
+    useEffect(() => {
+        const fetch = async () => {
+            const response = await CardRequest.getOneCard(search);
+            dispatchCardToState(response)
+        }
+        fetch()
     }, [search])
+    
     return (
     <View>
         <TextInput placeholder={"Wpisz kartę"} value={inputData} onChangeText={editedText => setInputData(editedText)}/>

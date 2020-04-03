@@ -1,6 +1,9 @@
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
+    view:{
+        flex:1
+    },
     column_desc:{
         flexDirection: 'column',
         margin:3

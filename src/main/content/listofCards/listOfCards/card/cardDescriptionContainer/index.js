@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { View, Text } from 'react-native';
-import { connect } from 'react-redux';
-import { returnCardType, typeCard } from '../../../../../../enumHelpers/TypeCard';
+import { returnCardType, typeCard } from '../../../../../../../enums/TypeCard';
 import Monster from './descriptions/Monster'
 import styles from './Style'
 
@@ -19,7 +18,7 @@ const CardDescriptionContainer = ({oneCard}) => {
                     archetype = {oneCard.archetype}/>
             )
             default:
-                return <View><Text>Blablabla</Text></View>
+                return <></>
         }
     }
     return (

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { View, Text, SafeAreaView, Button } from 'react-native';
-import { EnumView } from '../../../helpers/EnumView';
+import React from 'react';
+import { View, SafeAreaView, Button } from 'react-native';
+import { EnumView } from '../../../enums/EnumView';
 import { connect } from 'react-redux'
 
 const SimpleNav = ({handleSwitchView}) => {
@@ -20,7 +20,6 @@ const SimpleNav = ({handleSwitchView}) => {
 } 
 
 const mapStateToProps = (state) => {
-    console.log(state);
     return {}
 }
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { EnumView } from '../../../helpers/EnumView';
+import { EnumView } from '../../../enums/EnumView';
 
 const LocationNav = ({numberView, style}) => {
     const location = () => {

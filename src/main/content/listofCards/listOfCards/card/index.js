@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { View, Text } from 'react-native';
-import CardImageContainer from './cardImageContainer/Index';
-import CardDescriptionContainer from './cardDescriptionContainer/Index';
+import React from 'react';
+import { View } from 'react-native';
+import CardImageContainer from './cardImageContainer';
+import CardDescriptionContainer from './cardDescriptionContainer';
 import { connect } from 'react-redux';
 
 const Card = ({oneCard}) => {

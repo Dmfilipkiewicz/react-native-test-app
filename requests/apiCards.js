@@ -1,13 +1,7 @@
-import {axiosGet} from './api.js'
+import {axiosGet} from '../config/api.js'
 
 export const CardRequest = {
-    getCards:(success, failure) => {
-        axiosGet('https://db.ygoprodeck.com/api/v6/cardinfo.php', success, failure)
-    },
-    getOneCard:(search, success, failure) => {
-        axiosGet(`https://db.ygoprodeck.com/api/v6/cardinfo.php?name=${search}`, success, failure)
-    },
-    getSpecificCards:(search, success, failure) => {
-        axiosGet(`https://db.ygoprodeck.com/api/v6/cardinfo.php?fname=${search}`, success, failure)
-    }
+    getCards: async () => await axiosGet(''),
+    getOneCard: async (search) => await axiosGet(`?name=${search}`),
+    getSpecificCards: async (search) => await axiosGet(`?fname=${search}`)
 }

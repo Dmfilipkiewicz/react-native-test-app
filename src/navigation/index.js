@@ -1,10 +1,8 @@
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
-import Main from '../components/Main';
-import TestView from '../components/TestView'
-import Menu from '../components/menu/index'
-import ListOfCardsContainer from '../components/listOfCardsContainer/Index.js'
-import Card from '../components/content/listofCards/listOfCards/card/Index';
+import Main from '../main/Main';
+import Menu from '../main/menu/index'
+import ListOfCardsContainer from '../main/listOfCardsContainer'
 
 const screens = {
   menu: {
@@ -18,9 +16,6 @@ const screens = {
     navigationOptions:{
       title:'Wyszukaj konkretną kartę'
     }
-  },
-  testView: {
-    screen: TestView,
   },
   listOfCardsContainer: {
     screen: ListOfCardsContainer,

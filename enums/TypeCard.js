@@ -24,6 +24,5 @@ export const returnCardType = (card = '') =>{
         if(card.includes(typeCard[key].name))
             type = typeCard[key].name
     })
-    console.log(type);
     return type;
 }

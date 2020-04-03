@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import TestView from './src/components/TestView.js';
-import Main from './src/components/Main.js';
+import TestView from './src/main/TestView.js';
+import Main from './src/main/Main.js';
 import store from './store/Store.js';
 import {Provider} from 'react-redux';
-import Navigation from './src/navigation/Index';
+import Navigation from './src/navigation';
 import ContainerForReducerucer from './src/globalComponents/ContainerForReducer.js'
+import { ScrollView } from 'react-native-gesture-handler';
 
 export default function App() {
   return (

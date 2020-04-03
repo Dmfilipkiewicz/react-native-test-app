@@ -8,7 +8,6 @@ export const returnView = (num) => {
         if(EnumView[e].value === num){
             active = EnumView[e];
         }
-    console.log(name);
     return active
     })
 }
