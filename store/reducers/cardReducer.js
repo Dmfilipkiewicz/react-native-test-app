@@ -1,6 +1,6 @@
 const template = {
     cards: [],
-    searchedCard: [],
+    searchedCards: [],
     searchCardText: '',
   };
   
@@ -13,11 +13,11 @@ const template = {
           cards: payload
         }
       }
-      case 'ADD_CARD_TO_LIST': {
-        state.searchedCard.push(...payload);
+      case 'ADD_SEARCHED_CARDS_TO_LIST': {
+        state.searchedCards.push(...payload);
         return{
           ...state,
-          searchedCard: payload
+          searchedCards: payload
         }
       }
       case 'SEARCH_CARD':

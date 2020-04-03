@@ -1,27 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import { View, Button } from 'react-native';
-import { FlatList, TextInput } from 'react-native-gesture-handler';
+import { View, Button, TextInput } from 'react-native';
+import { FlatList } from 'react-native-gesture-handler';
 import { connect } from 'react-redux';
 import ShortCardDescription from './shortCardDescription/Index';
 import ImageCard from './imageCard/Index';
+import { CardRequest } from '../../../requests/apiCards';
 
-const ListOfCardsContainer = ({cardList, dispatchSearchToState, filteredCardList}) => {
+const ListOfCardsContainer = ({filteredCardList, dispatchSearchedCardsToState}) => {
 
     const [inputData, setInputData] = useState('')
     const [searchCards, setSearchCards] = useState('')
+    const [Loading, setLoading] = useState(true)
 
     useEffect( () =>{
-        dispatchSearchToState(searchCards)
+        setLoading(true)
+        CardRequest.getSpecificCards(searchCards, response => {
+            dispatchSearchedCardsToState(response.data)
+            setLoading(false)
+        })
     }, [searchCards])
 
     const handleSearchValue = ((search) => {
         setSearchCards(search)
     })
-
     return (
     <View>
         <View>
-            <TextInput value={inputData} onChangeText={editedText => setInputData(editedText)}/>
+            <TextInput  value={inputData} onChangeText={editedText => setInputData(editedText)}/>
             <Button title = 'Szukaj' onPress={() => handleSearchValue(inputData)}/>
         </View>
         <FlatList
@@ -42,19 +47,15 @@ const ListOfCardsContainer = ({cardList, dispatchSearchToState, filteredCardList
 } 
 
 const mapStateToProps = state => {   
-    const {item} = state.cardReducer.cards
-    let searchedValues = state.cardReducer.cards.filter(function(item) {
-        return item.name.includes(state.cardReducer.searchCardText);
-    });
     return{
-        cardList: item,
-        filteredCardList: searchedValues
+        cardList: state.cardReducer.cards,
+        filteredCardList: state.cardReducer.searchedCards
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return{
-        dispatchSearchToState: (searchText) => dispatch({type: 'SEARCH_CARD', payload: searchText})
+        dispatchSearchedCardsToState: (cards) => dispatch({type: 'ADD_SEARCHED_CARDS_TO_LIST', payload: cards})
     }
 }
 
