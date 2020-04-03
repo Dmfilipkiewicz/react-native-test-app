@@ -8,10 +8,16 @@ import Card from '../components/content/listofCards/listOfCards/card/Index';
 
 const screens = {
   menu: {
-    screen: Menu
+    screen: Menu,
+    navigationOptions:{
+      title:'Menu główne'
+    }
   },
   main: {
     screen: Main,
+    navigationOptions:{
+      title:'Wyszukaj konkretną kartę'
+    }
   },
   testView: {
     screen: TestView,

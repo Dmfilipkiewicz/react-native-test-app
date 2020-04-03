@@ -21,7 +21,7 @@ const SearchForCards = ({dispatchCardToState}) => {
     }, [search])
     return (
     <View>
-        <TextInput value={inputData} onChangeText={editedText => setInputData(editedText)}/>
+        <TextInput placeholder={"Wpisz kartę"} value={inputData} onChangeText={editedText => setInputData(editedText)}/>
         <Button title = 'Szukaj' onPress={() => handleSearchValue(inputData)}/>
     </View>)
 } 

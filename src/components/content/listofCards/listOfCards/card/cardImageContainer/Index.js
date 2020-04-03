@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, SafeAreaView } from 'react-native';
+import styles from './Style'
 
-const CardImageContainer = props => {
+
+const CardImageContainer = ({oneCard}) => {
+    const imgSrcCard = oneCard.card_images[0].image_url
 
     return (
-    <View>
-        <Text>test</Text>
-    </View>)
+    <SafeAreaView style={styles.image_view}>
+        <View>
+            <Image source={{uri: imgSrcCard}}
+                    style={styles.image_card}
+            />
+        </View>
+    </SafeAreaView>)
 } 
 
 export default CardImageContainer;

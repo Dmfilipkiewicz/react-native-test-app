@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text, Button} from 'react-native';
+import styles from './Style'
 
 const Menu = ({navigation}) => {
   const navigationHandler = routeName => {
@@ -8,17 +9,19 @@ const Menu = ({navigation}) => {
 
   return (
     <>
-      <View style={{padding: 40, backgroundColor: 'ddd'}}>
-        <Text>Main</Text>
-        <Button
-          title="Główna strona"
-          onPress={() => navigationHandler('main')}
-        />
-        <Text>:)</Text>
-        <Button
-          title="Lista kart"
-          onPress={() => navigationHandler('listOfCardsContainer')}
-        />
+      <View style={styles.menu_view}>
+        <View style={styles.menu_view_button}>
+          <Button
+            title="Wyszukaj kartę"
+            onPress={() => navigationHandler('main')}
+          />
+        </View>
+        <View style={styles.menu_view_button}>
+          <Button
+            title="Lista kart"
+            onPress={() => navigationHandler('listOfCardsContainer')}
+          />
+        </View>
       </View>
     </>
   );
